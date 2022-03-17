@@ -1,0 +1,8 @@
+¿Cómo conectar un Shelly a una Red de Control?
+Primero debemos conectarnos al Wifi que genera el propio Shelly, una vez conectados entramos en un navegador y escibimos el IP de la Shelly (192.168.33.1). 
+Este navegador nos llevara a la Interfaz proporcionada por dicha Shelly, encontraremos diversos comandos que nos permitiran realizar diversas funciones, como por ejemplo encender y apagar el relé de nuestro objeto. 
+Para conectar nuestro dispositivo SHelly a la Red de Control hay que seguir las instrucciones del fabricante, para ello debemos irnos al apartado de Internet&Security donde nos encontraremos un apartado explícito (Wifi Mode-Client)para conectarnos a un Wifi externo. 
+En dicho apartado habrá que introducir el nombre Wifi y el password de la Wifi a la que deseamos conectarnos. 
+Es recomendable establecer la IP estática para el dispositivo. 
+
+Una vez el dispositivo SHelly se ha conectado a la Red de Control, desde nuestro ordenador nos debemos conectar al Wifi de la Red de Control, desde ese momento puedes acceder a la información proporcionada por todos los dispositivos que se encuentren conectados a la Red de Control. Para acceder a dicha información se hará mediante peticiones GET ya sea a través de node-red o de código en python. 
