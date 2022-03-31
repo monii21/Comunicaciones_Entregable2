@@ -1,0 +1,21 @@
+¿Cómo emplear el prótocolo MQTT para publicar y subscribirse a topics de los Shellies de clase?
+
+En esta parte de la práctica sustituimos en node red todos los nodos httq request por mqtt request. 
+
+En dichos nodos debemos configurar el topic al cual deseas subscribirte o publicar. También se debe especificar el server a traves del cual se van a ejecutar dichas publicaciones o subscripciones. 
+En nuestro caso es la IP de la Raspberry conectada en el laboratorio (192.168.10.144)
+En la pestaña Security de dicho nodo se debe introducir los siguientes campos--> 
+	Username:comunicaciones
+	Password: comunicacionespass
+	
+De esta manera ya podemos realizar tanto publicaciones como subcripciones en dicho topic. 
+
+Los topics vienen especificados en la página oficial de Shelly, en nuestro caso en el Shelly EM. 
+
+SI por ejemplo se quiere obtener todos los datos de un determinado topic en el campo topic de nuestro nodo mqtt se debe rellenar como /topic_deseado/# la almoadilla es la responsable de poder acceder a todos los campos
+
+Si por ejemplo quisieramos obtener el estado del relé de nuestro Shelly el topic correspondiente es /shellies/shellyem1/relay/0 . El "shellyem1" es el nombre que se le ha otrogado al Shelly del laboratorio. 
+
+Este topic nos permite por ejemplo cambiar el estado del relé, mediante un string ("on", "off", "toggle". 
+
+
