@@ -1,0 +1,949 @@
+[
+    {
+        "id": "998a2e8fe6c41cdb",
+        "type": "tab",
+        "label": "Gestor Casa Automatizada",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b6e17f75cd2ae8c3",
+        "type": "mqtt in",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Openweather/temperatura",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "940ea05ce51ad329",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "b7a445e7b50d2754"
+            ]
+        ]
+    },
+    {
+        "id": "b7a445e7b50d2754",
+        "type": "switch",
+        "z": "998a2e8fe6c41cdb",
+        "name": "Temperatura",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "18",
+                "vt": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "18",
+                "vt": "num",
+                "v2": "25",
+                "v2t": "num"
+            },
+            {
+                "t": "gte",
+                "v": "25",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "9f8aa8e9829ace76"
+            ],
+            [
+                "40fde98fb6ec1156"
+            ],
+            [
+                "a6cfdc12d5e71c85"
+            ]
+        ]
+    },
+    {
+        "id": "9f8aa8e9829ace76",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "On",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 60,
+        "wires": [
+            [
+                "a9586816e5b71f3e"
+            ]
+        ]
+    },
+    {
+        "id": "40fde98fb6ec1156",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "19357d810e7e178f",
+                "a9586816e5b71f3e"
+            ]
+        ]
+    },
+    {
+        "id": "a6cfdc12d5e71c85",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "On",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 220,
+        "wires": [
+            [
+                "19357d810e7e178f"
+            ]
+        ]
+    },
+    {
+        "id": "19357d810e7e178f",
+        "type": "mqtt out",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/Aire_acondicionado",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "940ea05ce51ad329",
+        "x": 970,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e7b5cf4c53b0a330",
+        "type": "mqtt out",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/persianas",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "940ea05ce51ad329",
+        "x": 780,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "9edac5951445b5af",
+        "type": "mqtt out",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/Toldos",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "940ea05ce51ad329",
+        "x": 1130,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "432ef6edf61e8ed2",
+        "type": "mqtt out",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/Aspersores",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "940ea05ce51ad329",
+        "x": 780,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "5f60063c8c1c5d53",
+        "type": "mqtt out",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/Alarma",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "940ea05ce51ad329",
+        "x": 730,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a9586816e5b71f3e",
+        "type": "mqtt out",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/Calefaccion",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "940ea05ce51ad329",
+        "x": 940,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "574dbdc39c048218",
+        "type": "comment",
+        "z": "998a2e8fe6c41cdb",
+        "name": "Temperatura <= 18",
+        "info": "",
+        "x": 550,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "efca66ce78152bc8",
+        "type": "comment",
+        "z": "998a2e8fe6c41cdb",
+        "name": "Off en cualquier otro caso",
+        "info": "",
+        "x": 570,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e7729b98cdac9a51",
+        "type": "comment",
+        "z": "998a2e8fe6c41cdb",
+        "name": "si Temperatura >= 25",
+        "info": "",
+        "x": 540,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "402aa7e7b159c1b3",
+        "type": "inject",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "timestamp",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "a55dd2c41e0a97d6"
+            ]
+        ]
+    },
+    {
+        "id": "de9a16f65e4f95f0",
+        "type": "mqtt in",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Openweather/Amanecer",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "940ea05ce51ad329",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "3624ec50329057b8"
+            ]
+        ]
+    },
+    {
+        "id": "3b63512f44c5222f",
+        "type": "mqtt in",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Openweather/Anochecer",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "940ea05ce51ad329",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 460,
+        "wires": [
+            [
+                "6c474d443a9bca28"
+            ]
+        ]
+    },
+    {
+        "id": "a55dd2c41e0a97d6",
+        "type": "moment",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "Europe/Madrid",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "HH:mm",
+        "locale": "es-ES",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "Europe/Madrid",
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "a67c6cb9738a19ac"
+            ]
+        ]
+    },
+    {
+        "id": "3624ec50329057b8",
+        "type": "moment",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Madrid",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "HH:mm",
+        "locale": "es-ES",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Madrid",
+        "x": 460,
+        "y": 380,
+        "wires": [
+            [
+                "cb7fe73c457172a6"
+            ]
+        ]
+    },
+    {
+        "id": "6c474d443a9bca28",
+        "type": "moment",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Madrid",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "HH:mm",
+        "locale": "es-ES",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Madrid",
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "8e2d1ddcec360bdc"
+            ]
+        ]
+    },
+    {
+        "id": "12a2e6db55869cc3",
+        "type": "function",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "func": "if (msg.payload.timestamp == msg.payload.amanecer){\n    msg.payload = 'On'\n}\nelse if( msg.payload.timestamp == msg.payload.anochecer){\n    msg.payload = 'Off'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 380,
+        "wires": [
+            [
+                "9edac5951445b5af"
+            ]
+        ]
+    },
+    {
+        "id": "a67c6cb9738a19ac",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.timestamp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "12a2e6db55869cc3"
+            ]
+        ]
+    },
+    {
+        "id": "cb7fe73c457172a6",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.amanecer",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 380,
+        "wires": [
+            [
+                "12a2e6db55869cc3"
+            ]
+        ]
+    },
+    {
+        "id": "8e2d1ddcec360bdc",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.anochecer",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 460,
+        "wires": [
+            [
+                "12a2e6db55869cc3"
+            ]
+        ]
+    },
+    {
+        "id": "4125f4d54e00935f",
+        "type": "ui_button",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "group": "467ca21b3755247d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Alarma On",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "On",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "5f60063c8c1c5d53",
+                "203be3ca757b3238"
+            ]
+        ]
+    },
+    {
+        "id": "0f1cdd52868573f3",
+        "type": "ui_button",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "group": "467ca21b3755247d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Alarma Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "Off",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "5f60063c8c1c5d53",
+                "1b440f6977247f98"
+            ]
+        ]
+    },
+    {
+        "id": "aad52aef207c089f",
+        "type": "mqtt in",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "topic": "mqtt/Casa/Alarma",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "940ea05ce51ad329",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "9aad871d01b879f4"
+            ]
+        ]
+    },
+    {
+        "id": "9aad871d01b879f4",
+        "type": "switch",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "On",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "f3ae50ba5135c09b"
+            ],
+            [
+                "b30624fb1b1e552d"
+            ]
+        ]
+    },
+    {
+        "id": "f3ae50ba5135c09b",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "On",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 700,
+        "wires": [
+            [
+                "e7b5cf4c53b0a330"
+            ]
+        ]
+    },
+    {
+        "id": "b30624fb1b1e552d",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 740,
+        "wires": [
+            [
+                "e7b5cf4c53b0a330"
+            ]
+        ]
+    },
+    {
+        "id": "5f9a8e412f4c1cca",
+        "type": "ui_audio",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "group": "c1c965535ab8dca4",
+        "voice": "Google español",
+        "always": false,
+        "x": 740,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "203be3ca757b3238",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alarma activada",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 600,
+        "wires": [
+            [
+                "5f9a8e412f4c1cca"
+            ]
+        ]
+    },
+    {
+        "id": "1b440f6977247f98",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alarma desactivada",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 640,
+        "wires": [
+            [
+                "5f9a8e412f4c1cca"
+            ]
+        ]
+    },
+    {
+        "id": "620c37a142fdebe7",
+        "type": "ubidots_in",
+        "z": "998a2e8fe6c41cdb",
+        "tier": "business",
+        "name": "Ubidots in",
+        "token": "BBFF-wOzGmHvJlbTYLj8i0LBJ89VTEtdVWU",
+        "device_label": "practica2",
+        "tls_checkbox_in": true,
+        "custom_topic_checkbox": false,
+        "label_variable_1": "Aspersores",
+        "label_variable_2": "",
+        "label_variable_3": "",
+        "label_variable_4": "",
+        "label_variable_5": "",
+        "label_variable_6": "",
+        "label_variable_7": "",
+        "label_variable_8": "",
+        "label_variable_9": "",
+        "label_variable_10": "",
+        "checkbox_variable_1_last_value": true,
+        "checkbox_variable_2_last_value": true,
+        "checkbox_variable_3_last_value": true,
+        "checkbox_variable_4_last_value": true,
+        "checkbox_variable_5_last_value": true,
+        "checkbox_variable_6_last_value": true,
+        "checkbox_variable_7_last_value": true,
+        "checkbox_variable_8_last_value": true,
+        "checkbox_variable_9_last_value": true,
+        "checkbox_variable_10_last_value": true,
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "67707aa498c44ee4"
+            ]
+        ]
+    },
+    {
+        "id": "67707aa498c44ee4",
+        "type": "switch",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 820,
+        "wires": [
+            [
+                "75044ccc249fa265"
+            ],
+            [
+                "4e7d4b55fc269527"
+            ]
+        ]
+    },
+    {
+        "id": "75044ccc249fa265",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "On",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 800,
+        "wires": [
+            [
+                "432ef6edf61e8ed2"
+            ]
+        ]
+    },
+    {
+        "id": "4e7d4b55fc269527",
+        "type": "change",
+        "z": "998a2e8fe6c41cdb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 840,
+        "wires": [
+            [
+                "432ef6edf61e8ed2"
+            ]
+        ]
+    },
+    {
+        "id": "940ea05ce51ad329",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1 ",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "467ca21b3755247d",
+        "type": "ui_group",
+        "name": "Casa Domotizada",
+        "tab": "8239ae6ec55b1e10",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c1c965535ab8dca4",
+        "type": "ui_group",
+        "name": "Ciudad",
+        "tab": "8239ae6ec55b1e10",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8239ae6ec55b1e10",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
